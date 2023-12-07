@@ -1,6 +1,6 @@
 # Availability API
 
-Basic RESTful API
+Basic RESTful API to check place availability.
 
 ## Getting Started
 

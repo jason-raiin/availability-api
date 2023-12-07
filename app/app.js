@@ -1,7 +1,8 @@
 import express, { json } from 'express';
-import { ping } from './controllers.js';
+import { availability, ping } from './controllers.js';
 
 export const app = express();
 app.use(json());
 
 app.get('/', ping);
+app.get('/:date', availability);

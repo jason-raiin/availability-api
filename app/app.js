@@ -5,4 +5,4 @@ export const app = express();
 app.use(json());
 
 app.get('/', ping);
-app.get('/:date', availability);
+app.get('/:year/:month/:day', availability);

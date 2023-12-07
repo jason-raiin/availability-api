@@ -5,13 +5,13 @@ export const ping = (req, res) => {
 };
 
 export const availability = (req, res) => {
-  let date;
+  let { year, month, day } = req.params;
   try {
-    date = parseDate(req.params.date);
+    ({ year, month, day } = parseDate(year, month, day));
   } catch (err) {
     return res.status(400).send({ message: 'Invalid date format!', cause: err.message });
   }
 
-  const result = getAvailability(date);
+  const result = getAvailability(year, month, day);
   return res.json(result);
 };

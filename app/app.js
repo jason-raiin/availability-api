@@ -1,4 +1,7 @@
-import express from 'express';
+import express, { json } from 'express';
+import { ping } from './controllers.js';
 
 export const app = express();
-app.use(express.json());
+app.use(json());
+
+app.get('/', ping);

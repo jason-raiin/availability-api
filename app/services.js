@@ -11,6 +11,9 @@ export const parseDate = (year, month, day) => {
   // Date constructor hack: month is zero-indexed, day = 0 gives last day of previous month
   const getDaysInMonth = (year, month) => new Date(year, month, 0).getDate();
   if (!day || day > getDaysInMonth(year, month) || day < 1) throw new Error('Invalid day!');
+
+  if (new Date(year, month - 1, day + 1) < Date.now()) throw new Error('Date must be in the future!');
+
   return { year, month, day };
 };
 

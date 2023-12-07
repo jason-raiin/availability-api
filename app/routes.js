@@ -28,7 +28,7 @@ router.get('/', ping);
  * /{year}/{month}/{day}:
  *  get:
  *    summary: Retrieves places which are available on a given date.
- *    description: Returns a list of available places on the given date.
+ *    description: Returns a list of available places on the given date. Date must not be in the past.
  *    parameters:
  *      - in: path
  *        name: year
@@ -36,14 +36,14 @@ router.get('/', ping);
  *        description: Year in YYYY format
  *        schema:
  *          type: string
- *          example: 2023
+ *          example: 2024
  *      - in: path
  *        name: month
  *        required: true
  *        description: Month in MM format
  *        schema:
  *          type: string
- *          example: 11 
+ *          example: '01'
  *      - in: path
  *        name: day
  *        required: true

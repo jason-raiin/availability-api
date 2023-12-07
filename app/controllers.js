@@ -9,7 +9,7 @@ export const availability = (req, res) => {
   try {
     date = parseDate(req.params.date);
   } catch (err) {
-    return res.status(400).send({ message: err.message });
+    return res.status(400).send({ message: 'Invalid date format!', cause: err.message });
   }
 
   const result = getAvailability(date);

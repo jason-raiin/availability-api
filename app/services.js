@@ -3,9 +3,9 @@ import { readFileSync } from 'fs';
 export const getStatus = () => ({ status: 'Healthy!' });
 
 export const parseDate = (year, month, day) => {
-  year = parseInt(year);
-  month = parseInt(month);
-  day = parseInt(day);
+  year = Number(year);
+  month = Number(month);
+  day = Number(day);
   if (!year) throw new Error('Invalid year!');
   if (!month || month < 1 || month > 12) throw new Error('Invalid month!');
   // Date constructor hack: month is zero-indexed, day = 0 gives last day of previous month

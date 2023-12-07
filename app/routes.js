@@ -43,24 +43,28 @@ router.get('/', ping);
  *        description: Month in MM format
  *        schema:
  *          type: string
- *          example: 12
+ *          example: 11 
  *      - in: path
  *        name: day
  *        required: true
  *        description: Day in DD format
  *        schema:
  *          type: string
- *          example: '04'
+ *          example: '01'
  *    responses:
  *      200:
  *        description: The list of available places.
  *        content:
  *          application/json:
  *            schema:
- *              type: array
- *              items:
- *                  type: string
- *              example: [ Yonge, College ]
+ *              type: object
+ *              properties:
+ *                availablePlaces:
+ *                  type: array
+ *                  items:
+ *                    type: string
+ *              example: 
+ *                availablePlaces: [ Yonge, College ]
  *      400:
  *        description: 'Bad request: invalid params provided.'
  *        content:

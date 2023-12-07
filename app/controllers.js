@@ -1,10 +1,17 @@
-import { getAvailability, getStatus } from './services.js';
+import { getAvailability, getStatus, parseDate } from './services.js';
 
 export const ping = (req, res) => {
   return res.json(getStatus());
 };
 
-export const availability = async (req, res) => {
-  const result = getAvailability('hi');
+export const availability = (req, res) => {
+  let date;
+  try {
+    date = parseDate(req.params.date);
+  } catch (err) {
+    return res.status(400).send({ message: err.message });
+  }
+
+  const result = getAvailability(date);
   return res.json(result);
 };

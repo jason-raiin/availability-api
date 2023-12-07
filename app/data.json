@@ -1,0 +1,59 @@
+{
+    "places": [
+        { 
+            "name": "Yonge",
+            "availability": {
+                "2023": {
+                    "11": {
+                        "1": true,
+                        "2": true,
+                        "3": true,
+                        "4": true
+                    }
+                }
+            }
+        },
+        {
+            "name": "Dundas",
+            "availability": {
+                "2023": {
+                    "11": {
+                        "4": true,
+                        "5": true,
+                        "6": true,
+                        "7": true
+                    }
+                }
+            }
+        },
+        {
+            "name": "Bloor",
+            "availability": {
+                "2023": {
+                    "11": {
+                        "4": true,
+                        "5": true
+                    }
+                }
+            }
+        },
+        {
+            "name": "College",
+            "availability": {
+                "2023": {
+                    "11": {
+                        "1": true
+                    },
+                    "12": {
+                        "1": true
+                    }
+                },
+                "2024": {
+                    "1": {
+                        "1": true
+                    }
+                }
+            }
+        }
+    ]
+}

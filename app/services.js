@@ -5,9 +5,9 @@ export const getStatus = () => ({ status: 'Healthy!' });
 export const parseDate = (date) => {
   const [year, month, day] = date.split('-').map(str => parseInt(str));
 
-  // check for valid inputs
   if (!year) throw new Error('Invalid year!');
   if (!month || month < 1 || month > 12) throw new Error('Invalid month!');
+  // Date constructor hack: month is zero-indexed, day = 0 gives last day of previous month
   const getDaysInMonth = (year, month) => new Date(year, month, 0).getDate();
   if (!day || day > getDaysInMonth(year, month) || day < 1) throw new Error('Invalid day!');
 
@@ -20,7 +20,11 @@ const fetchPlaces = () => {
   return data.places;
 };
 
-export const getAvailability = (rawDate) => {
+export const getAvailability = ({ year, month, day }) => {
   const places = fetchPlaces();
-  return places;
+  const availablePlaces = places
+    .filter(place => place.availability?.[year]?.[month]?.[day])
+    .map(place => place.name);
+
+  return { availablePlaces };
 };
